@@ -1,22 +1,53 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <my-counter ref="counter" v-for="item in items"
+      :key="item.label"
+      :rate="item.price"
+      :available="available"
+      @update="updateAvailable">
+    </my-counter>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyCounter from './components/MyCounter.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    MyCounter
+  },
+  data () {
+    return {
+      available: 100,
+      items: []
+    }
+  },
+  methods: {
+    log (msg) {
+      console.log(msg)
+    },
+    updateAvailable (value) {
+      this.available = this.available - value
+    },
+    fetchItems () {
+      setTimeout(() => {
+        console.log('Items fetched')
+        this.items = [
+          { label: 'Apple', price: 5 },
+          { label: 'Banana', price: 10 },
+          { label: 'Coconut', price: 20 }
+        ]
+      }, 1000)
+    }
+  },
+  created () {
+    this.fetchItems()
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,5 +55,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  font-size: 36px;
+
+  .counter {
+    margin-bottom: 1em;
+  }
 }
 </style>
