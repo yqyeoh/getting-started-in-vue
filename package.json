@@ -10,9 +10,9 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-rc.5",
+    "@vue/cli-plugin-babel": "^3.5.5",
     "@vue/cli-plugin-eslint": "^3.0.0-rc.5",
-    "@vue/cli-service": "^3.0.0-rc.5",
+    "@vue/cli-service": "^3.5.3",
     "@vue/eslint-config-standard": "^3.0.5",
     "dart-sass": "^1.14.1",
     "sass-loader": "^7.1.0",
